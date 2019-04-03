@@ -1,0 +1,2 @@
+class Blod < ApplicationRecord
+end
