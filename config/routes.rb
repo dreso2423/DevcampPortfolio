@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  resources :portfolios
+  resources :portfolios, except: [:show]
+  get "portfolio/:id", to: "portfolios#show", as: "portfolio_show"#Creating your own custom route 
+
+
+
+  get 'about-me', to: "pages#about"#instead of pages/about
+#we can pass anything we want inside the get and that will be the link that will be redirected
+
+  get 'contact', to: "pages#contact"
+
   resources :blogs
-  get 'pages/home'
-  get 'pages/about'
-  get 'pages/contact'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to:"pages#home"#Its going to look at this and point to the homepage of the aplication it can be called anything we want it to
 end
